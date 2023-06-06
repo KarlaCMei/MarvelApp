@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">MarvelApp</string>
+    <string name="buscar">Buscar</string>
+
+
+    <!--Strings para los botones-->
+    <string name="btn_detail">Detail</string>
+    <string name="btn_comics">Comics</string>
+    <string name="btn_wiki">Wiki</string>
+</resources>
