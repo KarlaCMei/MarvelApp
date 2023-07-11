@@ -2,7 +2,6 @@ package com.example.marvelapp.retrofit.model;
 
 public class Thumbnail{
     public String path;
-    public String extension ;
 
     public String getUrl() {
         return path;

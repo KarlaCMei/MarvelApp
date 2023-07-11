@@ -10,12 +10,12 @@ public class SuperHeroDetailRepository {
 
     public static SuperHeroDetailRepository instance;
 
-    public static SuperHeroDetailRepository getInstance(){
+    public static SuperHeroDetailRepository getInstance() {
         if (instance == null) instance = new SuperHeroDetailRepository();
         return instance;
     }
 
-    public void searchSuperHeroId(CustomCallback<Root> callback, int id){
+    public void searchSuperHeroId(CustomCallback<Root> callback, int id) {
         MarvelService service = RetrofitService.getRetrofitInstance().create(MarvelService.class);
         service.getCharecterResultsId(id).enqueue(callback);
     }

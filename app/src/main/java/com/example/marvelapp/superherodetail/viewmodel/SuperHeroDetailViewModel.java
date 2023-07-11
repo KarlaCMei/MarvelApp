@@ -29,34 +29,32 @@ public class SuperHeroDetailViewModel extends BaseViewModel {
         superHeroDetailRepository = SuperHeroDetailRepository.getInstance();
     }
 
-    public void responseSuperHero(int id){
-        loading.postValue(true);
-
+    public void responseSuperHero(int id) {
         superHeroDetailRepository.searchSuperHeroId(new CustomCallback<Root>() {
             @Override
             public void onSuccess(Root response) {
                 List<Result> result = response.data.results;
 
-                if(!result.isEmpty()){
+                if (!result.isEmpty()) {
                     getResultsSuperHeros.postValue(result.get(0));
                     List<Url> listaurl = result.get(0).urls;
 
-                    if(!listaurl.isEmpty()){
+                    if (!listaurl.isEmpty()) {
                         getUrldetail.postValue(String.valueOf(listaurl.get(0).getUrl()));
 
-                    if(listaurl.size() > 1){
-                        getUrlComics.postValue(String.valueOf(listaurl.get(1).getUrl()));
-                    }
+                        if (listaurl.size() > 1) {
+                            getUrlComics.postValue(String.valueOf(listaurl.get(1).getUrl()));
+                        }
 
-                    if(listaurl.size() > 2){
-                        getUrlWiki.postValue(String.valueOf(listaurl.get(2).getUrl()));
-                    }
+                        if (listaurl.size() > 2) {
+                            getUrlWiki.postValue(String.valueOf(listaurl.get(2).getUrl()));
+                        }
 
                     }
 
                 }
 
-                Log.e("Mensajede", "onSuccess: " + response.copyright );
+                Log.e("Mensajede", "onSuccess: " + response.copyright);
                 loading.postValue(false);
 
             }
@@ -65,24 +63,34 @@ public class SuperHeroDetailViewModel extends BaseViewModel {
             public void onFailed(Throwable throwable) {
                 Log.e("Mensajede: ", "onFailed: " + throwable.getMessage());
                 msgError.postValue(throwable.getMessage());
-                //loading.postValue(false);
             }
-        },id);
+
+            @Override
+            public void showLoaging() {
+                loading.postValue(true);
+            }
+
+            @Override
+            public void hideLoading() {
+                loading.postValue(false);
+            }
+
+        }, id);
     }
 
-    public LiveData<Result> getSuperHeroes(){
+    public LiveData<Result> getSuperHeroes() {
         return getResultsSuperHeros;
     }
 
-    public LiveData<String> getUrlComics(){
+    public LiveData<String> getUrlComics() {
         return getUrlComics;
     }
 
-    public LiveData<String> getUrlDetail(){
+    public LiveData<String> getUrlDetail() {
         return getUrldetail;
     }
 
-    public LiveData<String> getUrlWiki(){
+    public LiveData<String> getUrlWiki() {
         return getUrlWiki;
     }
 

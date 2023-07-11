@@ -1,7 +1,6 @@
 package com.example.marvelapp.retrofit.model;
 
 public class Url{
-    public String type;
     public String url;
 
     public String getUrl() {

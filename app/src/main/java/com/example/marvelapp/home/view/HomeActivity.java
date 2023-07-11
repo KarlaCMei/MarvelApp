@@ -1,7 +1,6 @@
 package com.example.marvelapp.home.view;
 
 import androidx.annotation.NonNull;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
@@ -15,11 +14,8 @@ import com.example.marvelapp.databinding.ActivityHomeBinding;
 import com.example.marvelapp.home.viewmodel.HomeViewModel;
 import com.example.marvelapp.listsuperheroesresults.view.ListSuperHeroResultsActivity;
 import com.example.marvelapp.retrofit.MarvelAPIHashGenerator;
-import com.example.marvelapp.retrofit.model.Result;
 import com.example.marvelapp.utils.BaseActivity;
 import com.example.marvelapp.utils.constants.Constants;
-
-import java.util.List;
 
 public class HomeActivity extends BaseActivity<ActivityHomeBinding, HomeViewModel> {
     String publicKey = "658791e59fd52e517abe2e09f27b9c17";

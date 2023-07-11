@@ -16,10 +16,27 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    buildTypes {
+    signingConfigs {
         release {
+            storeFile file('/Users/mac/Downloads/MarvelApp.keystore')
+            storePassword 'APPMarvel'
+            keyAlias 'AppMarvel'
+            keyPassword 'APPMarvel'
+        }
+    }
+
+
+    buildTypes {
+
+        debug {
+            buildConfigField 'String', 'BASE_URL', '"https://gateway.marvel.com:443/"'
+        }
+
+        release {
+            buildConfigField 'String', 'BASE_URL', '"https://gateway.marvel.com:443/"'
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
     compileOptions {

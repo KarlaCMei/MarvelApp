@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.marvelapp.R;
 import com.example.marvelapp.retrofit.model.Result;
 import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 public class CustomSuperHeroAdapter extends RecyclerView.Adapter<CustomSuperHeroAdapter.ViewHolder> {
@@ -30,7 +32,7 @@ public class CustomSuperHeroAdapter extends RecyclerView.Adapter<CustomSuperHero
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.super_hero_item,parent,false);
+                .inflate(R.layout.super_hero_item, parent, false);
 
         ViewHolder vh = new ViewHolder(view);
         vh.setListener(this.listener);

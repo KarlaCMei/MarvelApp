@@ -1,6 +1,5 @@
 package com.example.marvelapp.listsuperheroesresults.repository;
 
-import com.example.marvelapp.home.repository.HomeRepository;
 import com.example.marvelapp.retrofit.CustomCallback;
 import com.example.marvelapp.retrofit.MarvelService;
 import com.example.marvelapp.retrofit.RetrofitService;

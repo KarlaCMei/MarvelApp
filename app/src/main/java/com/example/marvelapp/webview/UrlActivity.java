@@ -26,7 +26,7 @@ import java.util.List;
 
 public class UrlActivity extends BaseActivity<ActivityUrlBinding, BaseViewModel> {
     private WebView sitioWeb;
-    private List<Url> urlWeb ;
+    private List<Url> urlWeb;
 
 
     @Override

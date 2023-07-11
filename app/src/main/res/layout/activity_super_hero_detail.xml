@@ -27,34 +27,18 @@ tools:context=".superherodetail.view.SuperHeroDetailActivity">
         app:layout_scrollFlags="scroll|exitUntilCollapsed"
         app:toolbarId="@+id/toolbar">
 
-        <ImageView
-            android:id="@+id/img_heros"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            android:src="@drawable/img_marvel"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            android:alpha="0.3"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/img_super_hero"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentStart="true"
-                android:layout_marginStart="30dp"
-                android:layout_marginEnd="30dp"
-                android:layout_marginBottom="60dp"
-                android:layout_marginTop="30dp"
                 android:onClick="updateImagen"
                 android:scaleType="centerCrop"
                 app:srcCompat="@drawable/ic_img_background" />

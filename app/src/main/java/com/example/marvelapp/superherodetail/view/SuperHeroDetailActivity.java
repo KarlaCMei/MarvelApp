@@ -23,7 +23,7 @@ import java.util.List;
 
 public class SuperHeroDetailActivity extends BaseActivity<ActivitySuperHeroDetailBinding, SuperHeroDetailViewModel> {
 
-    private List<Url> urlWeb ;
+    private List<Url> urlWeb;
 
 
     @Override
@@ -50,9 +50,9 @@ public class SuperHeroDetailActivity extends BaseActivity<ActivitySuperHeroDetai
             public void onClick(View view) {
 
 
-                if(viewModel.getUrlComics().getValue() == null){
+                if (viewModel.getUrlComics().getValue() == null) {
                     viewModel.msgError.postValue("No se encontraron resultados");
-                }else{
+                } else {
 
                     Intent intent = new Intent(SuperHeroDetailActivity.this, UrlActivity.class);
                     intent.putExtra(Constants.URL_COMICS, viewModel.getUrlComics().getValue());
@@ -68,9 +68,9 @@ public class SuperHeroDetailActivity extends BaseActivity<ActivitySuperHeroDetai
             public void onClick(View view) {
 
 
-                if(viewModel.getUrlDetail().getValue() == null){
+                if (viewModel.getUrlDetail().getValue() == null) {
                     viewModel.msgError.postValue("No se encontraron resultados");
-                }else{
+                } else {
                     Intent intent = new Intent(SuperHeroDetailActivity.this, UrlActivity.class);
                     intent.putExtra(Constants.URL_COMICS, viewModel.getUrlDetail().getValue());
                     startActivity(intent);
@@ -82,9 +82,9 @@ public class SuperHeroDetailActivity extends BaseActivity<ActivitySuperHeroDetai
         binding.btnWiki.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(viewModel.getUrlWiki().getValue() == null){
+                if (viewModel.getUrlWiki().getValue() == null) {
                     viewModel.msgError.postValue("No se encontraron resultados");
-                }else{
+                } else {
                     Intent intent = new Intent(SuperHeroDetailActivity.this, UrlActivity.class);
                     intent.putExtra(Constants.URL_COMICS, viewModel.getUrlWiki().getValue());
                     startActivity(intent);
@@ -99,14 +99,14 @@ public class SuperHeroDetailActivity extends BaseActivity<ActivitySuperHeroDetai
         viewModel.getSuperHeroes().observe(this, new Observer<Result>() {
             @Override
             public void onChanged(Result result) {
-                    binding.textSuperHeroName.setText(result.getName());
-                    binding.textDescription.setText(result.getDescription());
-                    Picasso.with(SuperHeroDetailActivity.this).load(result.getImage() + ".jpg").into(binding.imgSuperHero);
-                    Log.e("URL Imagen del super heroe", result.getImage());
+                binding.textSuperHeroName.setText(result.getName());
+                binding.textDescription.setText(result.getDescription());
+                Picasso.with(SuperHeroDetailActivity.this).load(result.getImage() + ".jpg").into(binding.imgSuperHero);
+                Log.e("URL Imagen del super heroe", result.getImage());
             }
         });
 
     }
 
 
-    }
+}

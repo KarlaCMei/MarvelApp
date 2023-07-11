@@ -1,9 +1,6 @@
 package com.example.marvelapp.retrofit;
 
-import androidx.annotation.NonNull;
-
 import java.io.IOException;
-
 import okhttp3.HttpUrl;
 import okhttp3.Interceptor;
 import okhttp3.Request;
@@ -17,7 +14,7 @@ public class MarvelInterceptor implements Interceptor {
         HttpUrl originalUrl = original.url();
 
         HttpUrl url = originalUrl.newBuilder()
-                .addQueryParameter("apikey","658791e59fd52e517abe2e09f27b9c17")
+                .addQueryParameter("apikey", "658791e59fd52e517abe2e09f27b9c17")
                 .addQueryParameter("ts", "1")
                 .addQueryParameter("hash", "3d60d3b8d2c2b56ed6d0c03d504ba2c2")
                 .build();

@@ -4,8 +4,6 @@ import android.util.Log;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
-
-import com.example.marvelapp.home.repository.HomeRepository;
 import com.example.marvelapp.listsuperheroesresults.repository.ListSuperHeroResultsRepository;
 import com.example.marvelapp.retrofit.CustomCallback;
 import com.example.marvelapp.retrofit.model.Result;
@@ -16,20 +14,19 @@ import java.util.List;
 
 public class ListSuperHeroResultsViewModel extends BaseViewModel {
 
-        private ListSuperHeroResultsRepository listSuperHeroResultsRepository;
+    private ListSuperHeroResultsRepository listSuperHeroResultsRepository;
     private MutableLiveData<List<Result>> getResults = new MutableLiveData<>();
 
     public ListSuperHeroResultsViewModel() {
         listSuperHeroResultsRepository = ListSuperHeroResultsRepository.getInstance();
     }
 
-    public void resultsSuperHeroes(String name){
-        loading.postValue(true);
+    public void resultsSuperHeroes(String name) {
 
         listSuperHeroResultsRepository.searchSuperHero(new CustomCallback<Root>() {
             @Override
             public void onSuccess(Root response) {
-                Log.e("Mensajede", "onSuccess: " + response.copyright );
+                Log.e("Mensajede", "onSuccess: " + response.copyright);
                 getResults.postValue(response.data.results);
                 loading.postValue(false);
 
@@ -38,14 +35,23 @@ public class ListSuperHeroResultsViewModel extends BaseViewModel {
             @Override
             public void onFailed(Throwable throwable) {
                 Log.e("Mensajede: ", "onFailed: " + throwable.getMessage());
-                loading.postValue(false);
 
             }
 
-        },name);
+            @Override
+            public void showLoaging() {
+                loading.postValue(true);
+            }
+
+            @Override
+            public void hideLoading() {
+                loading.postValue(false);
+            }
+
+        }, name);
     }
 
-    public LiveData<List<Result>> getSuperHeroes(){
+    public LiveData<List<Result>> getSuperHeroes() {
         return getResults;
     }
 

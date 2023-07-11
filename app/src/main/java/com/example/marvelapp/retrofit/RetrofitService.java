@@ -1,5 +1,7 @@
 package com.example.marvelapp.retrofit;
 
+import com.example.marvelapp.BuildConfig;
+
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
@@ -8,7 +10,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class RetrofitService {
 
     private static Retrofit instance;
-    private static final String BASE_URL = "https://gateway.marvel.com:443/";
+    private static final String BASE_URL = BuildConfig.BASE_URL;
 
     public static Retrofit getRetrofitInstance() {
 

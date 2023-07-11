@@ -22,11 +22,12 @@ import com.airbnb.lottie.LottieAnimationView;
 import com.example.marvelapp.R;
 import com.example.marvelapp.retrofit.model.Result;
 
-public abstract class BaseActivity <BINDING extends ViewBinding, VM extends BaseViewModel> extends AppCompatActivity {
+public abstract class BaseActivity<BINDING extends ViewBinding, VM extends BaseViewModel> extends AppCompatActivity {
 
     protected VM viewModel;
     protected BINDING binding;
     private Dialog dialog;
+
     protected abstract VM createViewModel();
 
     @NonNull
@@ -47,9 +48,9 @@ public abstract class BaseActivity <BINDING extends ViewBinding, VM extends Base
         viewModel.loading.observe(this, new Observer<Boolean>() {
             @Override
             public void onChanged(Boolean isLoading) {
-                if(isLoading){
+                if (isLoading) {
                     showProgress();
-                }else{
+                } else {
                     hideProgress();
                 }
             }
@@ -63,7 +64,8 @@ public abstract class BaseActivity <BINDING extends ViewBinding, VM extends Base
             }
         });
     }
-    private void showProgress(){
+
+    private void showProgress() {
 
         dialog = new Dialog(BaseActivity.this, R.style.customLottie);
         dialog.setContentView(R.layout.dialog_search_lottie);
@@ -77,12 +79,12 @@ public abstract class BaseActivity <BINDING extends ViewBinding, VM extends Base
         dialog.show();*/
     }
 
-    private void hideProgress(){
+    private void hideProgress() {
         dialog.dismiss();
     }
 
 
-    private void dialogErrorLottie(String error){
+    private void dialogErrorLottie(String error) {
         AlertDialog.Builder builder = new AlertDialog.Builder(BaseActivity.this);
         LayoutInflater inflater = BaseActivity.this.getLayoutInflater();
 
@@ -90,7 +92,7 @@ public abstract class BaseActivity <BINDING extends ViewBinding, VM extends Base
         builder.setView(view);
 
         TextView txtMensajeError;
-        txtMensajeError =  view.findViewById(R.id.txtMsjError);
+        txtMensajeError = view.findViewById(R.id.txtMsjError);
         txtMensajeError.setText(error);
 
         builder.show();
